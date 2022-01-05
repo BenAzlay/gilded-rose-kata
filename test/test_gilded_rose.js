@@ -51,12 +51,22 @@ describe("Gilded Rose", function() {
   });
 
   it("update quality of Aged Brie", function() {
-    const brie = new Item("Aged Brie", 20, 10);
+    const item = new Item("Aged Brie", 20, 10);
 
-    const shop = new Shop([brie]);
+    const shop = new Shop([item]);
     shop.updateQuality();
 
-    expect(brie.sellIn).to.equal(19);
-    expect(brie.quality).to.equal(11);
+    expect(item.sellIn).to.equal(19);
+    expect(item.quality).to.equal(11);
+  });
+
+  it("update quality of Sulfuras", function() {
+    const item = new Item("Sulfuras, Hand of Ragnaros", 20, 10);
+
+    const shop = new Shop([item]);
+    shop.updateQuality();
+
+    expect(item.sellIn).to.equal(20);
+    expect(item.quality).to.equal(10);
   });
 });
