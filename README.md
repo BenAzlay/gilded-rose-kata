@@ -3,14 +3,13 @@
 Run me with:
 
 ```
-yarn
-yarn run:app
+npm run start
 ```
 
 Run tests with:
 
 ```
-yarn test
+npm run test
 ```
 
 

@@ -6,16 +6,6 @@ const exp = require('constants');
 
 describe("Gilded Rose", function() {
 
-  it("update quality of a normal item", function() {
-    const foo = new Item("foo", 20, 10);
-
-    const shop = new Shop([foo]);
-    const items = shop.updateQuality();
-
-    expect(foo.sellIn).to.equal(19);
-    expect(foo.quality).to.equal(9);
-  });
-
   it("matches the expected output", function() {
     const items = [
       new Item("+5 Dexterity Vest", 10, 20),
@@ -50,4 +40,23 @@ describe("Gilded Rose", function() {
     expect(actualOutput).to.equal(expectedOutput.toString());
   });
 
+  it("update quality of a normal item", function() {
+    const foo = new Item("foo", 20, 10);
+
+    const shop = new Shop([foo]);
+    const items = shop.updateQuality();
+
+    expect(foo.sellIn).to.equal(19);
+    expect(foo.quality).to.equal(9);
+  });
+
+  it("update quality of Aged Brie", function() {
+    const brie = new Item("Aged Brie", 20, 10);
+
+    const shop = new Shop([brie]);
+    shop.updateQuality();
+
+    expect(brie.sellIn).to.equal(19);
+    expect(brie.quality).to.equal(11);
+  });
 });
